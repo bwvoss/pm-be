@@ -1,14 +1,3 @@
-<h1 align="center">
-  <img src="https://s.tarkus.me/graphql-logo.png" width="128" height="128" alt="GraphQL" /><br>
-  GraphQL API and Relay Starter Kit
-  <br>
-  <a href="http://www.typescriptlang.org/"><img src="https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg?style=flat-square" height="20"></a>
-  <a href="http://patreon.com/koistya"><img src="https://img.shields.io/badge/dynamic/json?color=%23ff424d&label=Patreon&style=flat-square&query=data.attributes.patron_count&suffix=%20patrons&url=https%3A%2F%2Fwww.patreon.com%2Fapi%2Fcampaigns%2F233228" height="20"></a>
-  <a href="https://discord.gg/gx5pdvZ7Za"><img src="https://img.shields.io/discord/643523529131950086?label=Chat&style=flat-square" height="20"></a>
-  <a href="https://github.com/kriasoft/relay-starter-kit/stargazers"><img src="https://img.shields.io/github/stars/kriasoft/relay-starter-kit.svg?style=social&label=Star&maxAge=3600" height="20"></a>
-  <a href="https://twitter.com/koistya"><img src="https://img.shields.io/twitter/follow/koistya.svg?style=social&label=Follow&maxAge=3600" height="20"></a>
-</h1>
-
 ## Features
 
 - Monorepo project structure powered by Yarn with PnP
@@ -22,12 +11,7 @@
 - Pre-configured VSCode code snippets and other VSCode settings
 - The ongoing design and development is supported by these wonderful companies:
 
-<a href="https://reactstarter.com/s/1"><img src="https://reactstarter.com/s/1.png" height="60" /></a>&nbsp;&nbsp;<a href="https://reactstarter.com/s/2"><img src="https://reactstarter.com/s/2.png" height="60" /></a>&nbsp;&nbsp;<a href="https://reactstarter.com/s/3"><img src="https://reactstarter.com/s/3.png" height="60" /></a>
-
 ---
-
-This project was bootstrapped with [GraphQL API Starter Kit](https://github.com/kriasoft/relay-starter-kit).
-Be sure to join our [Discord channel](https://discord.com/invite/bSsv7XM) for assistance.
 
 ## Directory Structure
 

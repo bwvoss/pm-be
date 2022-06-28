@@ -7,7 +7,8 @@ import { useAuth, useNavigate } from "../core";
 import { type HomeQuery$data } from "../queries/HomeQuery.graphql";
 
 function Home(props: HomeQuery$data): JSX.Element {
-  const { me } = props;
+  const { me } = {};
+  const data = props;
   const navigate = useNavigate();
   const auth = useAuth();
 
@@ -22,7 +23,7 @@ function Home(props: HomeQuery$data): JSX.Element {
         sx={{ marginTop: "32vh" }}
         variant="h1"
         align="center"
-        children="Welcome to React.js app!"
+        children="Welcome to Reactjs app!"
         gutterBottom
       />
       <Typography sx={{ fontSize: "1.125rem" }} align="center">
@@ -39,6 +40,7 @@ function Home(props: HomeQuery$data): JSX.Element {
             <Link href="/auth/google" onClick={signIn}>
               Connect
             </Link>{" "}
+            {data.user.id}
             via your Google or Facebook account.
           </React.Fragment>
         )}

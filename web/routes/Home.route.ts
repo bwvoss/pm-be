@@ -13,8 +13,8 @@ export default {
   path: "/",
   query: graphql`
     query HomeQuery {
-      me {
-        ...Auth_user
+      user(username: "bot") {
+        id
       }
     }
   `,

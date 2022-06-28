@@ -5,12 +5,6 @@ optimized for hosting in a [serverless](https://cloud.google.com/serverless)
 environment such as [Google Cloud Functions](https://cloud.google.com/functions)
 or [Google Cloud Run](https://cloud.google.com/run).
 
----
-
-This project was bootstrapped with [GraphQL API Starter Kit](https://github.com/kriasoft/relay-starter-kit).
-Be sure to join our [Discord channel](https://discord.com/invite/bSsv7XM) for
-assistance.
-
 ## Tech Stack
 
 - [Node.js](https://nodejs.org/) `v16`, [Yarn](https://yarnpkg.com/), [TypeScript](https://www.typescriptlang.org/), [Babel](https://babeljs.io/), [Prettier](https://prettier.io/), [ESLint](https://eslint.org/) — core platform and dev tools
