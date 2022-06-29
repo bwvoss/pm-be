@@ -14,6 +14,11 @@ export enum IdentityProvider {
   PlayGames = "playgames",
 }
 
+export enum OutcomeDirection {
+  Increase = "increase",
+  Minimize = "minimize",
+}
+
 export enum UserActionType {
   ResetPassword = "reset_password",
   LoginFailed = "login_failed",
@@ -21,6 +26,10 @@ export enum UserActionType {
 
 export enum Table {
   Identity = "identity",
+  Interview = "interview",
+  Job = "job",
+  Outcome = "outcome",
+  Product = "product",
   User = "user",
   UserAction = "user_action",
 }
@@ -35,6 +44,46 @@ export type Identity = {
   credentials: Record<string, unknown>;
   created: Date;
   updated: Date;
+};
+
+export type Interview = {
+  id: string;
+  interviewee_name: string | null;
+  product_id: string;
+  created: Date;
+  updated: Date;
+  deleted: Date | null;
+};
+
+export type Job = {
+  id: string;
+  verb: string | null;
+  object: string | null;
+  context: string | null;
+  interview_id: string;
+  created: Date;
+  updated: Date;
+  deleted: Date | null;
+};
+
+export type Outcome = {
+  id: string;
+  direction: OutcomeDirection;
+  metric: string | null;
+  object: string | null;
+  context: string | null;
+  job_id: string;
+  created: Date;
+  updated: Date;
+  deleted: Date | null;
+};
+
+export type Product = {
+  id: string;
+  name: string | null;
+  created: Date;
+  updated: Date;
+  deleted: Date | null;
 };
 
 export type User = {
