@@ -18,6 +18,7 @@ export async function up(db: Knex) {
     table.timestamp("deleted");
   });
 
+  //TODO: determine the right way to get a general ID.  Short ID isn't exactly what I need here?
   await db.schema.createTable("interview", (table) => {
     table.specificType("id", "short_id").notNullable().primary();
     table.string("interviewee_name", 50); // Name of Interviewee
