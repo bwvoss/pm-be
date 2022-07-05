@@ -22,7 +22,7 @@ query {
 }
 ```
 
-Only when these two methods are not suffice you would need to declare a custom
+Only when these two methods are not sufficient you would need to declare a custom
 query field. For example:
 
 ```js

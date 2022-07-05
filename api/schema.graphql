@@ -31,6 +31,15 @@ type Root {
     """Returns the first n items from the list."""
     first: Int
   ): UserConnection
+
+  """Fetches products."""
+  products(
+    """Returns the items in the list that come after the specified cursor."""
+    after: String
+
+    """Returns the first n items from the list."""
+    first: Int
+  ): ProductConnection
 }
 
 """An object with an ID"""
@@ -119,6 +128,34 @@ type UserEdge {
 
   """A cursor for use in pagination"""
   cursor: String!
+}
+
+"""A connection to a list of items."""
+type ProductConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [ProductEdge]
+  totalCount: Int!
+}
+
+"""An edge in a connection."""
+type ProductEdge {
+  """The item at the end of the edge"""
+  node: Product
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+"""A product that research happens within."""
+type Product implements Node {
+  """The ID of an object"""
+  id: ID!
+  name: String!
+  created(format: String): String
+  updated(format: String): String
 }
 
 type Mutation {

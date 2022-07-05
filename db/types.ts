@@ -49,7 +49,7 @@ export type Identity = {
 export type Interview = {
   id: string;
   interviewee_name: string | null;
-  product_id: string;
+  product_id: string | null;
   created: Date;
   updated: Date;
   deleted: Date | null;
@@ -80,7 +80,7 @@ export type Outcome = {
 
 export type Product = {
   id: string;
-  name: string | null;
+  name: string;
   created: Date;
   updated: Date;
   deleted: Date | null;

@@ -11,7 +11,7 @@ export async function up(db: Knex) {
 
   await db.schema.createTable("product", (table) => {
     table.specificType("id", "short_id").notNullable().primary();
-    table.string("name", 100); // Name of Product
+    table.string("name", 100).notNullable().index(); // Name of Product
 
     table.timestamp("created").notNullable().defaultTo(db.fn.now()).index();
     table.timestamp("updated").notNullable().defaultTo(db.fn.now());
@@ -25,7 +25,6 @@ export async function up(db: Knex) {
 
     table
       .specificType("product_id", "short_id")
-      .notNullable()
       .references("product.id")
       .onDelete("CASCADE")
       .onUpdate("CASCADE"); // TODO: why is onUpdate needed?
