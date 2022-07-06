@@ -48,7 +48,7 @@ export type Identity = {
 
 export type Interview = {
   id: string;
-  interviewee_name: string | null;
+  interviewee_name: string;
   product_id: string | null;
   created: Date;
   updated: Date;

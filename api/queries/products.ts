@@ -26,7 +26,7 @@ export const products: GraphQLFieldConfig<unknown, Context> = {
   type: ProductConnection,
   args: forwardConnectionArgs,
 
-  async resolve(root, args, ctx) {
+  async resolve(root, args) {
     const limit = args.first === undefined ? 50 : args.first;
     const offset = args.after ? cursorToOffset(args.after) + 1 : 0;
 
@@ -38,11 +38,6 @@ export const products: GraphQLFieldConfig<unknown, Context> = {
       .offset(offset)
       .orderBy("created", "desc")
       .select();
-
-    data.forEach((x) => {
-      ctx.userById.prime(x.id, x);
-      if (x.username) ctx.userByUsername.prime(x.username, x);
-    });
 
     return {
       ...connectionFromArraySlice(data, args, {

@@ -40,6 +40,9 @@ type Root {
     """Returns the first n items from the list."""
     first: Int
   ): ProductConnection
+
+  """Fetches an interview by id."""
+  interview(id: String): Interview
 }
 
 """An object with an ID"""
@@ -154,6 +157,15 @@ type Product implements Node {
   """The ID of an object"""
   id: ID!
   name: String!
+  created(format: String): String
+  updated(format: String): String
+}
+
+"""An interview done for research."""
+type Interview implements Node {
+  """The ID of an object"""
+  id: ID!
+  interviewee_name: String!
   created(format: String): String
   updated(format: String): String
 }
