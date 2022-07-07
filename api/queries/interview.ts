@@ -7,6 +7,7 @@ import { InterviewType } from "../types";
  *   query {
  *     interview(id: "my-interview-id") {
  *       interviewee_name
+ *       jobs
  *     }
  *   }
  */

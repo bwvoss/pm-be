@@ -57,8 +57,8 @@ export type Interview = {
 
 export type Job = {
   id: string;
-  verb: string | null;
-  object: string | null;
+  verb: string;
+  object: string;
   context: string | null;
   interview_id: string;
   created: Date;
@@ -69,8 +69,8 @@ export type Job = {
 export type Outcome = {
   id: string;
   direction: OutcomeDirection;
-  metric: string | null;
-  object: string | null;
+  metric: string;
+  object: string;
   context: string | null;
   job_id: string;
   created: Date;

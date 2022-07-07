@@ -5,7 +5,7 @@ import DataLoader from "dataloader";
 import { Request } from "express";
 import { GraphQLParams } from "graphql-helix";
 import { Forbidden, Unauthorized } from "http-errors";
-import { Identity, User } from "../db/types";
+import { Identity, User, Job, Outcome } from "../db/types";
 import { db } from "./core/db";
 import { log, LogSeverity } from "./core/logging";
 import { mapTo, mapToMany } from "./utils";
@@ -101,5 +101,21 @@ export class Context extends Map<symbol, unknown> {
       .whereIn("user_id", keys)
       .select()
       .then((rows) => mapToMany(rows, keys, (x) => x.user_id)),
+  );
+
+  jobsByInterviewId = new DataLoader<string, Job[]>((keys) =>
+    db
+      .table<Job>("job")
+      .whereIn("interview_id", keys)
+      .select()
+      .then((rows) => mapToMany(rows, keys, (x) => x.interview_id)),
+  );
+
+  outcomesByJobId = new DataLoader<string, Outcome[]>((keys) =>
+    db
+      .table<Outcome>("outcome")
+      .whereIn("job_id", keys)
+      .select()
+      .then((rows) => mapToMany(rows, keys, (x) => x.job_id)),
   );
 }

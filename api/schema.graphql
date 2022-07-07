@@ -166,6 +166,31 @@ type Interview implements Node {
   """The ID of an object"""
   id: ID!
   interviewee_name: String!
+  jobs: [Job!]
+  created(format: String): String
+  updated(format: String): String
+}
+
+"""The Job To Be Done."""
+type Job {
+  """The ID of an object"""
+  id: ID!
+  verb: String!
+  object: String!
+  context: String
+  outcomes: [Outcome!]
+  created(format: String): String
+  updated(format: String): String
+}
+
+"""The measurable outcome of a job."""
+type Outcome {
+  """The ID of an object"""
+  id: ID!
+  direction: String!
+  metric: String!
+  object: String!
+  context: String
   created(format: String): String
   updated(format: String): String
 }

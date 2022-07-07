@@ -38,8 +38,8 @@ export async function up(db: Knex) {
     table.specificType("id", "short_id").notNullable().primary();
 
     // Length may have to be altered; mainly want to have a limit, just not sure what limit
-    table.string("verb", 50);
-    table.string("object", 100);
+    table.string("verb", 50).notNullable();
+    table.string("object", 100).notNullable();
     table.text("context", 500);
 
     table
@@ -59,8 +59,8 @@ export async function up(db: Knex) {
 
     table.specificType("direction", "outcome_direction").notNullable().index();
 
-    table.string("metric", 50);
-    table.string("object", 100);
+    table.string("metric", 50).notNullable();
+    table.string("object", 100).notNullable();
     table.text("context", 500);
 
     table

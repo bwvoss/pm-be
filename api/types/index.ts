@@ -1,5 +1,6 @@
-/* SPDX-FileCopyrightText: 2016-present Kriasoft <hello@kriasoft.com> */
-/* SPDX-License-Identifier: MIT */
+/*
+Only add node types here that you want to be directly queryable
+*/
 
 export * from "./enums";
 export * from "./user";
