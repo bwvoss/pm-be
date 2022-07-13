@@ -8,11 +8,10 @@ function Interview(props: InterviewQuery$data): JSX.Element {
 
   return (
     <Container
-      maxWidth="lg"
+      maxWidth="xl"
       sx={{
         display: "grid",
         gridGap: 24,
-        gridTemplateColumns: "160px auto",
         my: 3,
       }}
     >

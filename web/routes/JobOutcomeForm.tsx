@@ -1,11 +1,4 @@
-import {
-  Grid,
-  TextField,
-  Select,
-  MenuItem,
-  SelectChangeEvent,
-} from "@mui/material";
-
+import { Grid, TextField } from "@mui/material";
 import {
   TimelineSeparator,
   TimelineDot,
@@ -14,6 +7,7 @@ import {
   TimelineItem,
 } from "@mui/lab";
 import * as React from "react";
+import { OutcomeForm } from "./OutcomeForm";
 
 interface JobOutcomeFormProps {
   verb: string;
@@ -21,10 +15,6 @@ interface JobOutcomeFormProps {
   context: string;
   outcomes: array;
 }
-
-const handleChange = (event: SelectChangeEvent) => {
-  console.log(event.target.value);
-};
 
 function JobOutcomeForm({
   verb,
@@ -74,20 +64,9 @@ function JobOutcomeForm({
                 variant="standard"
               />
             </Grid>
+
             {outcomes.map((outcome) => (
-              <Grid item xs={12} key={outcome.id}>
-                <Select
-                  required
-                  id="direction"
-                  value={outcome.direction}
-                  onChange={handleChange}
-                  label="Direction"
-                  variant="standard"
-                >
-                  <MenuItem value={"increase"}>Increase</MenuItem>
-                  <MenuItem value={"minimize"}>Minimize</MenuItem>
-                </Select>
-              </Grid>
+              <OutcomeForm {...outcome} key={outcome.id} />
             ))}
           </Grid>
         </TimelineContent>
