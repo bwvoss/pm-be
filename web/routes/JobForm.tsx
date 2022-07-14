@@ -9,19 +9,19 @@ import {
 import * as React from "react";
 import { OutcomeForm } from "./OutcomeForm";
 
-interface JobOutcomeFormProps {
+interface JobFormProps {
   verb: string;
   object: string;
   context: string;
   outcomes: array;
 }
 
-function JobOutcomeForm({
+function JobForm({
   verb,
   object,
   context,
   outcomes,
-}: JobOutcomeFormProps): JSX.Element {
+}: JobFormProps): JSX.Element {
   return (
     <React.Fragment>
       <TimelineItem>
@@ -75,4 +75,4 @@ function JobOutcomeForm({
   );
 }
 
-export { JobOutcomeForm };
+export { JobForm };

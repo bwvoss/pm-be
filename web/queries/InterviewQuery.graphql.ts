@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<e5b4641f85e8b35ef1ea110739f506d4>>
+ * @generated SignedSource<<751610e64e2f15b9757f3273227822b5>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -16,10 +16,12 @@ export type InterviewQuery$data = {
   readonly interview: {
     readonly interviewee_name: string;
     readonly jobs: ReadonlyArray<{
+      readonly id: string;
       readonly verb: string;
       readonly object: string;
       readonly context: string | null;
       readonly outcomes: ReadonlyArray<{
+        readonly id: string;
         readonly direction: string;
         readonly metric: string;
         readonly object: string;
@@ -59,7 +61,7 @@ v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "verb",
+  "name": "id",
   "storageKey": null
 },
 v4 = {
@@ -79,22 +81,50 @@ v5 = {
 v6 = {
   "alias": null,
   "args": null,
-  "kind": "ScalarField",
-  "name": "direction",
-  "storageKey": null
-},
-v7 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "metric",
-  "storageKey": null
-},
-v8 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "id",
+  "concreteType": "Job",
+  "kind": "LinkedField",
+  "name": "jobs",
+  "plural": true,
+  "selections": [
+    (v3/*: any*/),
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "verb",
+      "storageKey": null
+    },
+    (v4/*: any*/),
+    (v5/*: any*/),
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "Outcome",
+      "kind": "LinkedField",
+      "name": "outcomes",
+      "plural": true,
+      "selections": [
+        (v3/*: any*/),
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "direction",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "metric",
+          "storageKey": null
+        },
+        (v4/*: any*/),
+        (v5/*: any*/)
+      ],
+      "storageKey": null
+    }
+  ],
   "storageKey": null
 };
 return {
@@ -113,35 +143,7 @@ return {
         "plural": false,
         "selections": [
           (v2/*: any*/),
-          {
-            "alias": null,
-            "args": null,
-            "concreteType": "Job",
-            "kind": "LinkedField",
-            "name": "jobs",
-            "plural": true,
-            "selections": [
-              (v3/*: any*/),
-              (v4/*: any*/),
-              (v5/*: any*/),
-              {
-                "alias": null,
-                "args": null,
-                "concreteType": "Outcome",
-                "kind": "LinkedField",
-                "name": "outcomes",
-                "plural": true,
-                "selections": [
-                  (v6/*: any*/),
-                  (v7/*: any*/),
-                  (v4/*: any*/),
-                  (v5/*: any*/)
-                ],
-                "storageKey": null
-              }
-            ],
-            "storageKey": null
-          }
+          (v6/*: any*/)
         ],
         "storageKey": null
       }
@@ -164,54 +166,24 @@ return {
         "plural": false,
         "selections": [
           (v2/*: any*/),
-          {
-            "alias": null,
-            "args": null,
-            "concreteType": "Job",
-            "kind": "LinkedField",
-            "name": "jobs",
-            "plural": true,
-            "selections": [
-              (v3/*: any*/),
-              (v4/*: any*/),
-              (v5/*: any*/),
-              {
-                "alias": null,
-                "args": null,
-                "concreteType": "Outcome",
-                "kind": "LinkedField",
-                "name": "outcomes",
-                "plural": true,
-                "selections": [
-                  (v6/*: any*/),
-                  (v7/*: any*/),
-                  (v4/*: any*/),
-                  (v5/*: any*/),
-                  (v8/*: any*/)
-                ],
-                "storageKey": null
-              },
-              (v8/*: any*/)
-            ],
-            "storageKey": null
-          },
-          (v8/*: any*/)
+          (v6/*: any*/),
+          (v3/*: any*/)
         ],
         "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "efc95e04ea97d722e7b78863439e2ceb",
+    "cacheID": "b1a096c5d755000d351e45f8644bfcc3",
     "id": null,
     "metadata": {},
     "name": "InterviewQuery",
     "operationKind": "query",
-    "text": "query InterviewQuery(\n  $interview_id: String!\n) {\n  interview(id: $interview_id) {\n    interviewee_name\n    jobs {\n      verb\n      object\n      context\n      outcomes {\n        direction\n        metric\n        object\n        context\n        id\n      }\n      id\n    }\n    id\n  }\n}\n"
+    "text": "query InterviewQuery(\n  $interview_id: String!\n) {\n  interview(id: $interview_id) {\n    interviewee_name\n    jobs {\n      id\n      verb\n      object\n      context\n      outcomes {\n        id\n        direction\n        metric\n        object\n        context\n      }\n    }\n    id\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "37708174315ba33f72ac194f6af423f7";
+(node as any).hash = "83b177f87deadb9ebdcb6347ea101c15";
 
 export default node;

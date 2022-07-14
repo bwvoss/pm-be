@@ -10,10 +10,12 @@ export default {
       interview(id: $interview_id) {
         interviewee_name
         jobs {
+          id
           verb
           object
           context
           outcomes {
+            id
             direction
             metric
             object

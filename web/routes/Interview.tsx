@@ -1,6 +1,6 @@
 import { Container, Typography } from "@mui/material";
 import { Timeline } from "@mui/lab";
-import { JobOutcomeForm } from "./JobOutcomeForm";
+import { JobForm } from "./JobForm";
 import { type InterviewQuery$data } from "../queries/InterviewQuery.graphql";
 
 function Interview(props: InterviewQuery$data): JSX.Element {
@@ -22,7 +22,7 @@ function Interview(props: InterviewQuery$data): JSX.Element {
       />
       <Timeline>
         {interview.jobs.map((job) => (
-          <JobOutcomeForm {...job} key={job.id} />
+          <JobForm {...job} key={job.id} />
         ))}
       </Timeline>
     </Container>
