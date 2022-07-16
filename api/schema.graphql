@@ -44,6 +44,15 @@ type Root {
   """Fetches an interview by global id."""
   interview(id: String): Interview
 
+  """Fetches interviews."""
+  interviews(
+    """Returns the items in the list that come after the specified cursor."""
+    after: String
+
+    """Returns the first n items from the list."""
+    first: Int
+  ): InterviewConnection
+
   """Fetches a job by id."""
   job(id: String): Job
 }
@@ -196,6 +205,25 @@ type Outcome {
   context: String
   created(format: String): String
   updated(format: String): String
+}
+
+"""A connection to a list of items."""
+type InterviewConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [InterviewEdge]
+  totalCount: Int!
+}
+
+"""An edge in a connection."""
+type InterviewEdge {
+  """The item at the end of the edge"""
+  node: Interview
+
+  """A cursor for use in pagination"""
+  cursor: String!
 }
 
 type Mutation {

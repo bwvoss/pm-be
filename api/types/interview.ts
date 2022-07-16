@@ -4,10 +4,10 @@ import {
   GraphQLObjectType,
   GraphQLString,
 } from "graphql";
-import { globalIdField } from "graphql-relay";
+import { connectionDefinitions, globalIdField } from "graphql-relay";
 import { Context, Interview } from "../core";
 import { JobType } from "./job";
-import { dateField } from "./fields";
+import { countField, dateField } from "./fields";
 import { nodeInterface } from "./node";
 
 export const InterviewType = new GraphQLObjectType<Interview, Context>({
@@ -33,3 +33,12 @@ export const InterviewType = new GraphQLObjectType<Interview, Context>({
     updated: dateField((self) => self.updated),
   },
 });
+
+const connection = connectionDefinitions({
+  name: "Interview",
+  nodeType: InterviewType,
+  connectionFields: { totalCount: countField },
+});
+
+export const InterviewConnection = connection.connectionType;
+export const InterviewEdge = connection.edgeType;

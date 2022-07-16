@@ -4,7 +4,7 @@ import { type InterviewQuery } from "../queries/InterviewQuery.graphql";
 import { type Interview } from "./Interview";
 
 export default {
-  path: "/interview/:interview_id(\\w+)",
+  path: "/interview/:interview_id",
   query: graphql`
     query InterviewQuery($interview_id: String!) {
       interview(id: $interview_id) {

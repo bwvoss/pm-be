@@ -24,8 +24,9 @@ export const interview: GraphQLFieldConfig<User, Context> = {
     const query = db.table<Interview>("interview");
 
     if (args.id) {
-      // const id = fromGlobalId(args.id, "Interview");
-      return query.where("id", "=", args.id).first();
+      const id = fromGlobalId(args.id, "Interview");
+      console.log(id);
+      return query.where("id", "=", id).first();
     } else {
       throw new Error("The id (Global) argument is required.");
     }
