@@ -41,8 +41,11 @@ type Root {
     first: Int
   ): ProductConnection
 
-  """Fetches an interview by id."""
+  """Fetches an interview by global id."""
   interview(id: String): Interview
+
+  """Fetches a job by id."""
+  job(id: String): Job
 }
 
 """An object with an ID"""
@@ -223,6 +226,9 @@ type Mutation {
 
   """Updates the user account."""
   updateUser(input: UpdateUserInput, dryRun: Boolean! = false): UpdateUserPayload
+
+  """Updates the job with the given ID."""
+  updateJob(input: UpdateJobInput, dryRun: Boolean! = false): UpdateJobPayload
 }
 
 type SignInPayload {
@@ -280,4 +286,15 @@ input UpdateUserInput {
   familyName: String
   timeZone: String
   locale: String
+}
+
+type UpdateJobPayload {
+  job: Job
+}
+
+input UpdateJobInput {
+  id: ID!
+  verb: String
+  object: String
+  context: String
 }

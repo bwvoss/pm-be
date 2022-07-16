@@ -111,6 +111,14 @@ export class Context extends Map<symbol, unknown> {
       .then((rows) => mapToMany(rows, keys, (x) => x.interview_id)),
   );
 
+  jobById = new DataLoader<string, Job | null>((keys) =>
+    db
+      .table<Job>("job")
+      .whereIn("id", keys)
+      .select()
+      .then((rows) => mapTo(rows, keys, (x) => x.id)),
+  );
+
   outcomesByJobId = new DataLoader<string, Outcome[]>((keys) =>
     db
       .table<Outcome>("outcome")

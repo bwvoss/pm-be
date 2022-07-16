@@ -25,7 +25,7 @@ export default {
       }
     }
   `,
-  component: () => import(/* webpackChunkName: "home" */ "./Interview"),
+  component: () => import("./Interview"),
   response: (data) => ({
     title: "Interview",
     description: "Capture the JTBD and Outcomes during an interview",

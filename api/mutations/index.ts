@@ -7,3 +7,4 @@ export * from "./getUploadURL";
 export * from "./resetPassword";
 export * from "./saveUpload";
 export * from "./updateUser";
+export * from "./updateJob";

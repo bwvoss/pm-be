@@ -1,6 +1,7 @@
 import { GraphQLFieldConfig, GraphQLString } from "graphql";
 import { Context, db, Interview } from "../core";
 import { InterviewType } from "../types";
+import { fromGlobalId } from "../utils";
 
 /**
  * @example
@@ -12,7 +13,7 @@ import { InterviewType } from "../types";
  *   }
  */
 export const interview: GraphQLFieldConfig<User, Context> = {
-  description: "Fetches an interview by id.",
+  description: "Fetches an interview by global id.",
   type: InterviewType,
 
   args: {
@@ -23,9 +24,10 @@ export const interview: GraphQLFieldConfig<User, Context> = {
     const query = db.table<Interview>("interview");
 
     if (args.id) {
+      // const id = fromGlobalId(args.id, "Interview");
       return query.where("id", "=", args.id).first();
     } else {
-      throw new Error("The id argument is required.");
+      throw new Error("The id (Global) argument is required.");
     }
   },
 };

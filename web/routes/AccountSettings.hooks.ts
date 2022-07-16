@@ -1,6 +1,3 @@
-/* SPDX-FileCopyrightText: 2016-present Kriasoft <hello@kriasoft.com> */
-/* SPDX-License-Identifier: MIT */
-
 import * as React from "react";
 import { graphql, useMutation } from "react-relay";
 import { useAuth } from "../core";
